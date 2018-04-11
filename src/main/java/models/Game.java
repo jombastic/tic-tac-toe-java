@@ -1,28 +1,42 @@
 package models;
 
 public class Game {
-  private char[][] board;
+  private char[][] board = new char[3][3];
   private char currentPlayer;
 
+  public Game(char currentPlayer) {
+    this.currentPlayer = currentPlayer;
+  }
+
+  public char getCurrentPlayer() {
+    return this.currentPlayer;
+  }
+
   public void initializeBoard() {
-    // loop through rows
+    // Loop through rows
     for (int i = 0; i < 3; i++) {
-      // loop through columns
+      // Loop through columns
       for (int j = 0; j < 3; j++) {
         board[i][j] = '-';
       }
     }
   }
 
+  public boolean isBoardFull() {
+    return (board[0][0] != '-') && (board[0][1] != '-') && (board[0][2] != '-') &&
+            (board[1][0] != '-') && (board[1][1] != '-') && (board[1][2] != '-') &&
+            (board[2][0] != '-') && (board[2][1] != '-') && (board[2][2] != '-');
+  }
+
   public void printBoard() {
-    System.out.println("-------------");
+    System.out.println("-------");
     for (int i = 0; i < 3; i++) {
       System.out.print("|");
       for (int j = 0; j < 3; j++) {
         System.out.print(board[i][j] + "|");
       }
       System.out.println();
-      System.out.println("-------------");
+      System.out.println("-------");
     }
   }
 
