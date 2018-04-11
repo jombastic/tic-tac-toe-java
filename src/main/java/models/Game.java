@@ -27,7 +27,7 @@ public class Game {
   }
 
   public boolean isWinner() {
-    return (checkRows());
+    return (checkRows() || checkColumns() || checkDiagonals());
   }
 
   private boolean checkRows() {
@@ -54,5 +54,13 @@ public class Game {
 
   private boolean checkRowCol(char c1, char c2, char c3) {
     return ((c1 != '-') && (c1 == c2) && (c2 == c3));
+  }
+
+  public void changePlayer() {
+    if (currentPlayer == 'x') {
+      currentPlayer = 'o';
+    } else {
+      currentPlayer = 'x';
+    }
   }
 }
