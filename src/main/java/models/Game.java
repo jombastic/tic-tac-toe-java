@@ -48,6 +48,10 @@ public class Game {
     return false;
   }
 
+  private boolean checkDiagonals() {
+    return checkRowCol(board[0][0], board[1][1], board[2][2]) || checkRowCol(board[0][2], board[1][1], board[2][0]);
+  }
+
   private boolean checkRowCol(char c1, char c2, char c3) {
     return ((c1 != '-') && (c1 == c2) && (c2 == c3));
   }
