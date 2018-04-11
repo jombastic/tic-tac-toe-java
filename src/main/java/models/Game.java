@@ -39,6 +39,15 @@ public class Game {
     return false;
   }
 
+  private boolean checkColumns() {
+    for (int i = 0; i < 3; i++) {
+      if (checkRowCol(board[0][i], board[1][i], board[2][i])) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   private boolean checkRowCol(char c1, char c2, char c3) {
     return ((c1 != '-') && (c1 == c2) && (c2 == c3));
   }
