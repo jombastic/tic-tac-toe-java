@@ -25,4 +25,21 @@ public class Game {
       System.out.println("-------------");
     }
   }
+
+  public boolean isWinner() {
+    return (checkRows());
+  }
+
+  private boolean checkRows() {
+    for (int i = 0; i < 3; i++) {
+      if (checkRowCol(board[i][0], board[i][1], board[i][2])) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private boolean checkRowCol(char c1, char c2, char c3) {
+    return ((c1 != '-') && (c1 == c2) && (c2 == c3));
+  }
 }
