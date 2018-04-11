@@ -52,7 +52,7 @@ public class Game {
     return checkRowCol(board[0][0], board[1][1], board[2][2]) || checkRowCol(board[0][2], board[1][1], board[2][0]);
   }
 
-  private boolean checkRowCol(char c1, char c2, char c3) {
+  boolean checkRowCol(char c1, char c2, char c3) {
     return ((c1 != '-') && (c1 == c2) && (c2 == c3));
   }
 
@@ -62,5 +62,15 @@ public class Game {
     } else {
       currentPlayer = 'x';
     }
+  }
+
+  public boolean placeMark(int row, int col) {
+    if ((row >= 0) && (row < 3) && (col >= 0) && (col < 3)) {
+      if (board[row][col] == '-') {
+        board[row][col] = currentPlayer;
+        return true;
+      }
+    }
+    return false;
   }
 }
